@@ -1,10 +1,24 @@
 # software-aargh
 
-1. Screenshots of Swagger for your APIs in another server that provides the same set of functions accessible via REST APIs.
+## Members
+
+Boonyawee Kiatsilp 6031034121
+
+Pichaya Karawawattana 6031042121
+
+Pimkunut Theerathitayangkul 6031043821
+
+Romnalin Kitkasetsathaporn 6031049621
+
+Jinwara Janejaneprasert 6030079221
+
+Jiraphat Khupanit 6030087221
+
+### Screenshots of Swagger for your APIs in another server that provides the same set of functions accessible via REST APIs.
 
 <img src="./Swagger API.png">
 
-2. Source codes of server that provides the same set of functions accessible and client that makes use of the service via these REST APIs.
+### Source codes of server that provides the same set of functions accessible and client that makes use of the service via these REST APIs.
 
 Server (Route)
 ```
@@ -108,7 +122,7 @@ else if (command == 'watch')
     watchBooks();
 ```
 
-3. Compare how to call the methods based on gRPC and REST API side-by-side, e.g. in a Table format as shown below.
+### Compare how to call the methods based on gRPC and REST API side-by-side, e.g. in a Table format as shown below.
 
 | Functions  | gPRC | REST API |
 | ------------- | ------------- | ------------- |
@@ -118,16 +132,16 @@ else if (command == 'watch')
 | Delete books | client.delete({ id: parseInt(id) }, function(error, empty) { printResponse(error, empty); }); | axios.get(ENDPOINT+`/delete?id=${id}`); |
 | Watch books | call.on('data', function(book) { console.log(book); }); |
 
-4. What are the main differences between REST API and gRPC?
+### What are the main differences between REST API and gRPC?
 
 REST API จะส่ง Request ด้วย HTTP Protocol เพื่อให้ server ทำงาน แล้วส่ง Response กลับมา
 แต่ gRPC จะเรียกใช้ procedure จาก server ที่ทำงานอยู่โดยตรง
 
-5. What is the benefits of introduce interface in front of the gRPC and REST API of the book services?
+### What is the benefits of introduce interface in front of the gRPC and REST API of the book services?
 
 
 
-6. Based on the introduced interface, compare how to call the methods based on gRPC and REST API side-by-side, e.g. in a
+### Based on the introduced interface, compare how to call the methods based on gRPC and REST API side-by-side, e.g. in a
 Table format as shown below.
 
 | Functions  | gPRC | REST API |
@@ -138,5 +152,5 @@ Table format as shown below.
 | Delete books | node client.js delete 'id' | node client.js delete 'id' | 
 | Watch books | node client.js watch | node client.js watch |
 
-7. Draw a component diagram representing the book services with and without interfaces.
+### Draw a component diagram representing the book services with and without interfaces.
 
