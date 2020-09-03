@@ -143,8 +143,7 @@ REST API จะส่ง Request ด้วย HTTP Protocol เพื่อใ�
 
 
 
-### Based on the introduced interface, compare how to call the methods based on gRPC and REST API side-by-side, e.g. in a
-Table format as shown below.
+### Based on the introduced interface, compare how to call the methods based on gRPC and REST API side-by-side, e.g. in a Table format as shown below.
 
 | Functions  | gPRC | REST API |
 | ------------- | ------------- | ------------- |
@@ -155,4 +154,5 @@ Table format as shown below.
 | Watch books | node client.js watch | node client.js watch |
 
 ### Draw a component diagram representing the book services with and without interfaces.
+
 
