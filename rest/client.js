@@ -1,4 +1,5 @@
 const axios = require('axios')
+
 var processName = process.argv.shift();
 var scriptName = process.argv.shift();
 var command = process.argv.shift();
@@ -31,11 +32,8 @@ const deleteBook = async id => {
   printResponse(response)
 }
 
-const watchBooks = () => {
-  // while(1) {
-  //   const response = await axios.get(ENDPOINT+'/watch');
-  //   printResponse(response)
-  // }
+const watchBooks = async () => {
+  // TODO
 }
 
 if (command == 'list')
