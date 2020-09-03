@@ -45,15 +45,7 @@
             "post": {
                 "parameters": [
                     {
-                        "name": "id",
-                        "in": "body"
-                    },
-                    {
-                        "name": "title",
-                        "in": "body"
-                    },
-                    {
-                        "name": "author",
+                        "name": "body",
                         "in": "body"
                     }
                 ],

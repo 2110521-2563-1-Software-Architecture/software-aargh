@@ -32,7 +32,10 @@ const deleteBook = async id => {
 }
 
 const watchBooks = () => {
-  // TODO
+  // while(1) {
+  //   const response = await axios.get(ENDPOINT+'/watch');
+  //   printResponse(response)
+  // }
 }
 
 if (command == 'list')
