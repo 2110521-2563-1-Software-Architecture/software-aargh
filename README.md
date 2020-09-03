@@ -17,6 +17,8 @@ Jiraphat Khupanit 6030087221
 ### Screenshots of Swagger for your APIs in another server that provides the same set of functions accessible via REST APIs.
 
 <img src="./Swagger API.png">
+<img src="./swagger-list.png">
+<img src="./swagger-delete.png">
 
 ### Source codes of server that provides the same set of functions accessible and client that makes use of the service via these REST APIs.
 
