@@ -19,6 +19,8 @@ Jiraphat Khupanit 6030087221
 
 <img src="./Swagger API.png">
 <img src="./swagger-list.png">
+<img src="./insert-swagger.png">
+<img src="./swagger-get.png">
 <img src="./swagger-delete.png">
 
 ### Source codes of server that provides the same set of functions accessible and client that makes use of the service via these REST APIs.
@@ -144,7 +146,7 @@ REST API จะส่ง Request ด้วย HTTP Protocol เพื่อใ�
 
 
 
-### Based on the introduced interface, compare how to call the methods based on gRPC and REST API side-by-side, e.g. in a Table format as shown below.
+### Based on the introduced interface, compare how to call the methods based on gRPC and REST API side-by-side, e.g. in a table format as shown below.
 
 | Functions  | gPRC | REST API |
 | ------------- | ------------- | ------------- |
