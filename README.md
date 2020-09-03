@@ -119,10 +119,13 @@ else if (command == 'watch')
 | Watch books | call.on('data', function(book) { console.log(book); }); |
 
 4. What are the main differences between REST API and gRPC?
+
 REST API จะส่ง Request ด้วย HTTP Protocol เพื่อให้ server ทำงาน แล้วส่ง Response กลับมา
 แต่ gRPC จะเรียกใช้ procedure จาก server ที่ทำงานอยู่โดยตรง
 
 5. What is the benefits of introduce interface in front of the gRPC and REST API of the book services?
+
+
 
 6. Based on the introduced interface, compare how to call the methods based on gRPC and REST API side-by-side, e.g. in a
 Table format as shown below.
@@ -130,9 +133,9 @@ Table format as shown below.
 | Functions  | gPRC | REST API |
 | ------------- | ------------- | ------------- |
 | List books | node client.js list | node client.js list |
-| Insert books | node client insert 1 A A | node client insert 1 A A |
-| Get books | node client.js get 123 | node client.js get 123 |
-| Delete books | node client.js delete 0 | node client.js delete 0 | 
+| Insert books | node client insert 'id' 'title' 'author' | node client insert 'id' 'title' 'author' |
+| Get books | node client.js get 'id' | node client.js get 'id' |
+| Delete books | node client.js delete 'id' | node client.js delete 'id' | 
 | Watch books | node client.js watch | node client.js watch |
 
 7. Draw a component diagram representing the book services with and without interfaces.
