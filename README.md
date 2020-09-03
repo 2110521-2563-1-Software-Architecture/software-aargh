@@ -158,4 +158,4 @@ REST API จะส่ง Request ด้วย HTTP Protocol เพื่อใ�
 
 ### Draw a component diagram representing the book services with and without interfaces.
 
-
+<img src="./gRPC Component Diagram.png">
