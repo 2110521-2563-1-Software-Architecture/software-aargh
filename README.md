@@ -71,7 +71,6 @@ router.get('/delete', function(req, res, next) {
 
 router.get('/watch', function(req, res, next) {
   // todo
-  res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
@@ -135,7 +134,7 @@ else if (command == 'watch')
 | Insert books | client.insert(book, function(error, empty) { printResponse(error, empty); }); | axios.post(ENDPOINT+'/insert', { id, title, author }) |
 | Get books | client.get({ id: parseInt(id) }, function(error, book) { printResponse(error, book); }); | axios.get(ENDPOINT+`/get?id=${id}`); |
 | Delete books | client.delete({ id: parseInt(id) }, function(error, empty) { printResponse(error, empty); }); | axios.get(ENDPOINT+`/delete?id=${id}`); |
-| Watch books | call.on('data', function(book) { console.log(book); }); |
+| Watch books | call.on('data', function(book) { console.log(book); }); | - |
 
 ### What are the main differences between REST API and gRPC?
 
@@ -154,7 +153,7 @@ REST API จะส่ง Request ด้วย HTTP Protocol เพื่อใ�
 | Insert books | node client insert 'id' 'title' 'author' | node client insert 'id' 'title' 'author' |
 | Get books | node client.js get 'id' | node client.js get 'id' |
 | Delete books | node client.js delete 'id' | node client.js delete 'id' | 
-| Watch books | node client.js watch | node client.js watch |
+| Watch books | node client.js watch | - |
 
 ### Draw a component diagram representing the book services with and without interfaces.
 
