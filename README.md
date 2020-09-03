@@ -112,13 +112,15 @@ else if (command == 'watch')
 
 | Functions  | gPRC | REST API |
 | ------------- | ------------- | ------------- |
-| List books | node client.js list | node client.js list |
-| Insert books | node client insert 1 A A | 
-| Get books | node client.js get 123 |
-| Delete books | node client.js delete 0 | 
-| Watch books | node client.js watch |
+| List books | client.list({}, function(error, books) { printResponse(error, books); }); | await axios.get(ENDPOINT+'/list'); |
+| Insert books | client.insert(book, function(error, empty) { printResponse(error, empty); }); | axios.post(ENDPOINT+'/insert', { id, title, author }) |
+| Get books | client.get({ id: parseInt(id) }, function(error, book) { printResponse(error, book); }); | axios.get(ENDPOINT+`/get?id=${id}`); |
+| Delete books | client.delete({ id: parseInt(id) }, function(error, empty) { printResponse(error, empty); }); | axios.get(ENDPOINT+`/delete?id=${id}`); |
+| Watch books | call.on('data', function(book) { console.log(book); }); |
 
 4. What are the main differences between REST API and gRPC?
+REST API จะส่ง Request ด้วย HTTP Protocol เพื่อให้ server ทำงาน แล้วส่ง Response กลับมา
+แต่ gRPC จะเรียกใช้ procedure จาก server ที่ทำงานอยู่โดยตรง
 
 5. What is the benefits of introduce interface in front of the gRPC and REST API of the book services?
 
