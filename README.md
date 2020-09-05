@@ -3,16 +3,11 @@
 ## Members
 
 Boonyawee Kiatsilp 6031034121
-
-Pichaya Karawawattana 6031042121
-
-Pimkunut Theerathitayangkul 6031043821
-
-Romnalin Kitkasetsathaporn 6031049621
-
-Jinwara Janejaneprasert 6030079221
-
-Jiraphat Khupanit 6030087221
+<br />Pichaya Karawawattana 6031042121
+<br />Pimkunut Theerathitayangkul 6031043821
+<br />Romnalin Kitkasetsathaporn 6031049621
+<br />Jinwara Janejaneprasert 6030079221
+<br />Jiraphat Khupanit 6030087221
 
 ## Assignment 1
 ### Screenshots of Swagger for your APIs in another server that provides the same set of functions accessible via REST APIs.
@@ -132,20 +127,20 @@ else if (command == 'watch')
 | ------------- | ------------- | ------------- |
 | List books | `client.list({}, function(error, books) { printResponse(error, books); });` | `await axios.get(ENDPOINT+'/list');` |
 | Insert books | `client.insert(book, function(error, empty) { printResponse(error, empty); });` | `axios.post(ENDPOINT+'/insert', { id, title, author })` |
-| Get books | `client.get({ id: parseInt(id) }, function(error, book) { printResponse(error, book); });` | `axios.get(ENDPOINT+`/get?id=${id}`);` |
-| Delete books | `client.delete({ id: parseInt(id) }, function(error, empty) { printResponse(error, empty); });` | `axios.get(ENDPOINT+`/delete?id=${id}`);` |
+| Get books | `client.get({ id: parseInt(id) }, function(error, book) { printResponse(error, book); });` | `axios.get(ENDPOINT+'/get?id=${id}');` |
+| Delete books | `client.delete({ id: parseInt(id) }, function(error, empty) { printResponse(error, empty); });` | `axios.get(ENDPOINT+'/delete?id=${id}');` |
 | Watch books | `call.on('data', function(book) { console.log(book); });` | - |
 
 ### What are the main differences between REST API and gRPC?
 
 REST API จะส่ง Request ด้วย HTTP Protocol เพื่อให้ server ทำงาน แล้วส่ง Response กลับมา
 แต่ gRPC จะเรียกใช้ procedure จาก server ที่ทำงานอยู่โดยตรง
-และประสิทธิภาพของ gRPC จะสูงกว่าของ REST API เนื่องจากความแตกต่างของการ implement เช่น protocol ที่ใช้(HTTP2 สำหรับ gRPC และ HTTP1.1 สำหรับ REST API), payload(Protobuf ที่เก็บข้อมูลในแบบ binary สำหรับ gRPC และ JSON,XML สำหรับ REST API) หรือ API contract(Strict สำหรับ gRPC และ Loose สำหรับ REST API)
+<br />และประสิทธิภาพของ gRPC จะสูงกว่าของ REST API เนื่องจากความแตกต่างของการ implement เช่น protocol ที่ใช้(HTTP2 สำหรับ gRPC และ HTTP1.1 สำหรับ REST API), payload(Protobuf ที่เก็บข้อมูลในแบบ binary สำหรับ gRPC และ JSON,XML สำหรับ REST API) หรือ API contract(Strict สำหรับ gRPC และ Loose สำหรับ REST API)
 
 ### What is the benefits of introduce interface in front of the gRPC and REST API of the book services?
 
 การใช้ interface จะช่วยในเรื่องของ user transparency นั่นคือ user จะสามารถเรียกใช้ได้ด้วยการ call method ที่ง่ายขึ้น ไม่จำเป็นต้องรู้เบื้องหลังการทำงานของ server ซึ่งทำให้ user เรียกใช้งาน service ได้สะดวกมากยิ่งขึ้น
-และเมื่อมีการเปลี่ยนแปลง หรือต้องการแก้ไข function การทำงาน หรือเปลี่ยนตัวให้บริการ service ใดๆก็ตาม สามารถทำได้ง่ายขึ้นโดยไม่ส่งผลกระทบต่อ user หรือส่งผลน้อย เนื่องจาก user ยังคงสามารถเรียกใช้ผ่าน interface เดิมได้
+<br />และเมื่อมีการเปลี่ยนแปลง หรือต้องการแก้ไข function การทำงาน หรือเปลี่ยนตัวให้บริการ service ใดๆก็ตาม สามารถทำได้ง่ายขึ้นโดยไม่ส่งผลกระทบต่อ user หรือส่งผลน้อย เนื่องจาก user ยังคงสามารถเรียกใช้ผ่าน interface เดิมได้
 
 ### Based on the introduced interface, compare how to call the methods based on gRPC and REST API side-by-side, e.g. in a table format as shown below.
 
