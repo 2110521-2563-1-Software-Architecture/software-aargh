@@ -127,8 +127,8 @@ else if (command == 'watch')
 | ------------- | ------------- | ------------- |
 | List books | `client.list({}, function(error, books) { printResponse(error, books); });` | `await axios.get(ENDPOINT+'/list');` |
 | Insert books | `client.insert(book, function(error, empty) { printResponse(error, empty); });` | `axios.post(ENDPOINT+'/insert', { id, title, author })` |
-| Get books | `client.get({ id: parseInt(id) }, function(error, book) { printResponse(error, book); });` | `axios.get(ENDPOINT+'/get?id=${id}');` |
-| Delete books | `client.delete({ id: parseInt(id) }, function(error, empty) { printResponse(error, empty); });` | `axios.get(ENDPOINT+'/delete?id=${id}');` |
+| Get books | `client.get({ id: parseInt(id) }, function(error, book) { printResponse(error, book); });` | ``axios.get(ENDPOINT+`/get?id=${id}`);`` |
+| Delete books | `client.delete({ id: parseInt(id) }, function(error, empty) { printResponse(error, empty); });` | ``axios.get(ENDPOINT+`/delete?id=${id}`);`` |
 | Watch books | `call.on('data', function(book) { console.log(book); });` | - |
 
 ### What are the main differences between REST API and gRPC?
