@@ -130,30 +130,32 @@ else if (command == 'watch')
 
 | Functions  | gPRC | REST API |
 | ------------- | ------------- | ------------- |
-| List books | client.list({}, function(error, books) { printResponse(error, books); }); | await axios.get(ENDPOINT+'/list'); |
-| Insert books | client.insert(book, function(error, empty) { printResponse(error, empty); }); | axios.post(ENDPOINT+'/insert', { id, title, author }) |
-| Get books | client.get({ id: parseInt(id) }, function(error, book) { printResponse(error, book); }); | axios.get(ENDPOINT+`/get?id=${id}`); |
-| Delete books | client.delete({ id: parseInt(id) }, function(error, empty) { printResponse(error, empty); }); | axios.get(ENDPOINT+`/delete?id=${id}`); |
-| Watch books | call.on('data', function(book) { console.log(book); }); | - |
+| List books | `client.list({}, function(error, books) { printResponse(error, books); });` | `await axios.get(ENDPOINT+'/list');` |
+| Insert books | `client.insert(book, function(error, empty) { printResponse(error, empty); });` | `axios.post(ENDPOINT+'/insert', { id, title, author })` |
+| Get books | `client.get({ id: parseInt(id) }, function(error, book) { printResponse(error, book); });` | `axios.get(ENDPOINT+`/get?id=${id}`);` |
+| Delete books | `client.delete({ id: parseInt(id) }, function(error, empty) { printResponse(error, empty); });` | `axios.get(ENDPOINT+`/delete?id=${id}`);` |
+| Watch books | `call.on('data', function(book) { console.log(book); });` | - |
 
 ### What are the main differences between REST API and gRPC?
 
 REST API จะส่ง Request ด้วย HTTP Protocol เพื่อให้ server ทำงาน แล้วส่ง Response กลับมา
 แต่ gRPC จะเรียกใช้ procedure จาก server ที่ทำงานอยู่โดยตรง
+และประสิทธิภาพของ gRPC จะสูงกว่าของ REST API เนื่องจากความแตกต่างของการ implement เช่น protocol ที่ใช้(HTTP2 สำหรับ gRPC และ HTTP1.1 สำหรับ REST API), payload(Protobuf ที่เก็บข้อมูลในแบบ binary สำหรับ gRPC และ JSON,XML สำหรับ REST API) หรือ API contract(Strict สำหรับ gRPC และ Loose สำหรับ REST API)
 
 ### What is the benefits of introduce interface in front of the gRPC and REST API of the book services?
 
-
+การใช้ interface จะช่วยในเรื่องของ user transparency นั่นคือ user จะสามารถเรียกใช้ได้ด้วยการ call method ที่ง่ายขึ้น ไม่จำเป็นต้องรู้เบื้องหลังการทำงานของ server ซึ่งทำให้ user เรียกใช้งาน service ได้สะดวกมากยิ่งขึ้น
+และเมื่อมีการเปลี่ยนแปลง หรือต้องการแก้ไข function การทำงาน หรือเปลี่ยนตัวให้บริการ service ใดๆก็ตาม สามารถทำได้ง่ายขึ้นโดยไม่ส่งผลกระทบต่อ user หรือส่งผลน้อย เนื่องจาก user ยังคงสามารถเรียกใช้ผ่าน interface เดิมได้
 
 ### Based on the introduced interface, compare how to call the methods based on gRPC and REST API side-by-side, e.g. in a table format as shown below.
 
 | Functions  | gPRC | REST API |
 | ------------- | ------------- | ------------- |
-| List books | node client.js list | node client.js list |
-| Insert books | node client insert 'id' 'title' 'author' | node client insert 'id' 'title' 'author' |
-| Get books | node client.js get 'id' | node client.js get 'id' |
-| Delete books | node client.js delete 'id' | node client.js delete 'id' | 
-| Watch books | node client.js watch | - |
+| List books | `node client.js list` | `node client.js list` |
+| Insert books | `node client insert 'id' 'title' 'author'` | `node client insert 'id' 'title' 'author'` |
+| Get books | `node client.js get 'id'` | `node client.js get 'id'` |
+| Delete books | `node client.js delete 'id'` | `node client.js delete 'id'` | 
+| Watch books | `node client.js watch` | - |
 
 ### Draw a component diagram representing the book services with and without interfaces.
 
